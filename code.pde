@@ -147,7 +147,7 @@ void draw(){
   text(medikit + "/20",610,790);
   fill(255,255,255);
   
-  if ((random(1) > 0.997) && medikit >= 2) {
+  if ((random(1) > 0.997) && medikit >= 2 && housing > 0) {
     if ((random(1)) > 0.3) {
       medikit -= 2;
       housing += 1;
@@ -434,7 +434,11 @@ void draw(){
   line(800,700,1420,700);
   fill(255);
   
-  text("LEVEL " + ((round(raidcount*2)) + (round(housing/2)) + (round(money/1000))+ daypassed + (siegecount*2)) + " FACTION",820,710);
+  if (housing <= 0 && raider <= 0) {
+    text("LEVEL " + ((round(raidcount*2)) + (round(housing/2)) + (round(money/1000))+ daypassed + (siegecount*2)) + " FAILURE. REFRESH PAGE",820,710);
+  } else {
+    text("LEVEL " + ((round(raidcount*2)) + (round(housing/2)) + (round(money/1000))+ daypassed + (siegecount*2)) + " FACTION",820,710);
+  };
   
   textSize(70);
   text("FACTION MASTER",830,780);
